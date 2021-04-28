@@ -229,3 +229,9 @@ export async function getResumeBlock(courseId) {
   const { data } = await getAuthenticatedHttpClient().get(url.href, {});
   return camelCaseObject(data);
 }
+
+export async function sendActivationEmail() {
+  const url = new URL(`${getConfig().LMS_BASE_URL}/api/send_account_activation_email`);
+  const { data } = await getAuthenticatedHttpClient().post(url.href, {});
+  return data;
+}
