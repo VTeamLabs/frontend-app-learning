@@ -14,7 +14,7 @@ function AccountActivationAlert() {
   };
 
   const showAccountActivationAlert = Cookies.get('show-account-activation-popup');
-  if (showAccountActivationAlert === 'true') {
+  if (showAccountActivationAlert !== undefined) {
     Cookies.remove('show-account-activation-popup', { path: '/', domain: process.env.SESSION_COOKIE_DOMAIN });
     // extra check to make sure cookie was removed before updating the state. Updating the state without removal
     // of cookie would make it infinit rendering
