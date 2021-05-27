@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import { getConfig } from '@edx/frontend-platform';
 import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
-import { AlertModal, Button, Spinner, Icon } from '@edx/paragon';
-import { Check } from '@edx/paragon/icons';
+import {
+  AlertModal,
+  Button,
+  Spinner,
+  Icon,
+} from '@edx/paragon';
+import { Check, ArrowForward } from '@edx/paragon/icons';
 import { FormattedMessage, injectIntl } from '@edx/frontend-platform/i18n';
 import { sendActivationEmail } from '../../courseware/data';
 
@@ -54,6 +59,7 @@ function AccountActivationAlert() {
           siteName: getConfig().SITE_NAME,
         }}
       />
+      <Icon src={ArrowForward} className="ml-1 account-activation-arrow-forward" />
     </Button>
   );
 
@@ -81,26 +87,26 @@ function AccountActivationAlert() {
       />
     );
     bodyContent = (
-      <p>
+      <div>
         {message}
-      </p>
+      </div>
     );
 
     if (showCheck === false && showSpinner === true) {
       bodyContent = (
-        <p>
+        <div>
           {message}
           <Spinner animation="border" variant="primary" size="sm" />
-        </p>
+        </div>
       );
     }
 
     if (showCheck === true && showSpinner === false) {
       bodyContent = (
-        <p>
+        <div>
           {message}
-          <Icon src={Check} className="text-success account-activation-check" />
-        </p>
+          <Icon src={Check} className="text-success-500 account-activation-check" />
+        </div>
       );
     }
     return bodyContent;
@@ -111,7 +117,7 @@ function AccountActivationAlert() {
       isOpen={showModal}
       title={title}
       footerNode={button}
-      close={() => ({})}
+      onClose={() => ({})}
     >
       {children()}
     </AlertModal>

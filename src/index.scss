@@ -364,6 +364,11 @@
   position: fixed;
 }
 
+.account-activation-arrow-forward {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
 .locked-overlay {
   opacity: .3;
   pointer-events: none;
