@@ -357,6 +357,13 @@
   }
 }
 
+.account-activation-check {
+  display: inline-block;
+  height: 1.9rem;
+  width: 1rem;
+  position: fixed;
+}
+
 .locked-overlay {
   opacity: .3;
   pointer-events: none;
